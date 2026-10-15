@@ -1,0 +1,22 @@
+# Solo se publica la landing: index.html y lo que carga. Todo lo demás de la
+# carpeta (PSB/PNG de trabajo, INSUMOS, prueba-estilo.html, ks-bootshop-master,
+# originales sin optimizar) queda fuera. Si la página usa un archivo nuevo,
+# agrégalo abajo con "!".
+/*
+
+!/.gitignore
+!/index.html
+!/style.css
+!/script.js
+!/logo.svg
+
+!/hero3.webp
+!/banner.webp
+!/concept-3.webp
+!/01.webp
+!/02.webp
+!/insta.webp
+!/notified.webp
+!/shopbag.webp
+!/texture.webp
+!/texture-2.webp

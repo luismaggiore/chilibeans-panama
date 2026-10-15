@@ -1,0 +1,703 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+:root {
+  /* Paleta primaria */
+  --brand: #cb333b;
+  --black: #000000;
+  --white: #ffffff;
+  /* Paleta Secundaria */
+  --cream: #cecdc1;
+  --gray: #73818d;
+  --blue: #003b4b;
+  --orange: #ef7d19;
+  --scarlet: #98182b;
+  --brown: #381f11;
+  --smoke: #f8f8f8;
+
+  --btn-color: var(--brand);
+  --btn-text: var(--white);
+  --btn2-color: var(--black);
+  --btn2-text: var(--white);
+
+  --font-title: "Anton", sans-serif;
+  --font-text: "Plus Jakarta Sans", sans-serif;
+
+  --ratio: 1.2;
+  --smallest: 12px; /* etiquetas, fechas, metadatos: mínimo legible en web */
+  --sm: clamp(
+    16px,
+    0.7vw,
+    18px
+  ); /* texto de lectura: 16px (recomendación de Google) */
+
+  --xs: calc(
+    var(--sm) / var(--ratio)
+  ); /* ~12px · solo para espaciados, no para texto */
+  --xxs: calc(
+    var(--xs) / var(--ratio)
+  ); /* ~9.5px · solo para espaciados, no para texto */
+
+  --md: calc(var(--sm) * var(--ratio)); /* ~21px */
+  --lg: calc(var(--md) * var(--ratio)); /* ~27px */
+  --xl: calc(var(--lg) * var(--ratio)); /* ~35px */
+  --xxl: calc(var(--xl) * var(--ratio)); /* ~46px */
+  --xlg: calc(var(--xxl) * var(--ratio) * 2); /* ~59px */
+  --gutter-y: clamp(50px, 5vw, 800px);
+  --gutter: clamp(10px, 8vw, 800px);
+  --transition: 250ms ease;
+}
+body {
+  font-family: var(--font-text);
+  padding: 0;
+  background-color: var(--white);
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(100px, 5.1vw, 180px);
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  line-height: 1;
+}
+h2 {
+  font-size: var(--xxl);
+}
+h3 {
+  font-size: var(--lg);
+}
+h4 {
+  font-size: var(--md);
+}
+.text-md {
+  font-size: var(--md);
+}
+p {
+  font-size: var(--sm);
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: var(--font-title);
+  text-transform: uppercase;
+}
+section {
+  padding: var(--gutter-y) 0;
+  margin: 0;
+}
+.container-fluid {
+  padding: 0 var(--gutter);
+}
+/* .split: sección en dos mitades de fondo completo (cada hijo lleva su .bg-*).
+   El borde exterior de cada mitad usa --gutter, así el contenido queda alineado
+   con el de .container-fluid; hacia el centro el espacio es menor. En móvil
+   las mitades se apilan y ambas llevan --gutter a los dos lados. */
+.split {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* no se estira con el contenido */
+  padding: 0;
+}
+.split > * {
+  padding: var(--xxl) var(--gutter);
+}
+@media (min-width: 992px) {
+  .split {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+  .split > :first-child {
+    padding-right: var(--xxl);
+  }
+  .split > :last-child {
+    padding-left: var(--xxl);
+  }
+}
+/* Eyebrow: texto corto sobre un título. Toma el color de acento de los
+   enlaces de cada .bg-*, que ya está elegido para leerse sobre ese fondo. */
+.eyebrow {
+  font-family: var(--font-text);
+  font-size: var(--smallest);
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--link-color, var(--brand));
+  margin: 0 0 var(--xxs);
+}
+/* Enlaces: cada .bg-* define --link-color y --link-hover-color con los
+   colores de marca. Fuera de un .bg-* se mantiene el color de Bootstrap. */
+a {
+  color: var(
+    --link-color,
+    rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1))
+  );
+}
+a:hover {
+  color: var(
+    --link-hover-color,
+    rgba(var(--bs-link-color-rgb), var(--bs-link-opacity, 1))
+  );
+}
+/* Footer: enlaces (y redes) blancos sin subrayado, rojo de marca en hover */
+footer a {
+  color: var(--white);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+footer a:hover,
+footer a:focus-visible {
+  color: var(--brand);
+}
+/* Títulos de columna del footer en whitesmoke en vez del naranja de bg-black */
+footer .eyebrow {
+  color: var(--smoke);
+}
+.impact {
+  /* en pantallas muy angostas (<~346px) baja para que "CUALQUIER" quepa */
+  font-size: min(var(--xlg), 23vw);
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  line-height: 1;
+  font-weight: 300;
+}
+/* List-group: Bootstrap le pone fondo blanco y color propios a cada ítem;
+   así toma el fondo y el color de texto del .bg-* donde esté */
+.list-group {
+  --bs-list-group-bg: transparent;
+  --bs-list-group-color: inherit;
+}
+/* Fondos de la paleta: cada uno define su color de texto, su text-muted
+   (Bootstrap lo pinta con var(--bs-secondary-color)), sus enlaces y los
+   colores de .btn-brand / .btn-two. --bg-color es el fondo de la sección,
+   que también usa el hover-fx de los botones. */
+.bg-red {
+  --bg-color: var(--brand);
+  background-color: var(--bg-color);
+  color: var(--white);
+  --bs-secondary-color: color-mix(in srgb, var(--white) 85%, transparent);
+  --link-color: var(--white);
+  --link-hover-color: var(--black);
+  --btn-color: var(--white);
+  --btn-text: var(--brand);
+  --btn2-color: var(--black);
+  --btn2-text: var(--white);
+  --btn2-hover-text: var(--white);
+}
+.bg-black {
+  /* --bg-color negro: es el relleno del hover de ambos botones */
+  --bg-color: var(--black);
+  background-color: var(--bg-color);
+  color: var(--white);
+  --bs-secondary-color: color-mix(in srgb, var(--white) 65%, transparent);
+  --link-color: var(--orange);
+  --link-hover-color: var(--white);
+  --btn-color: var(--brand);
+  --btn-text: var(--white);
+  --btn2-color: var(--white);
+  --btn2-text: var(--black);
+  --btn2-border: var(--white);
+  --btn2-hover-text: var(--white);
+}
+.bg-white {
+  --bg-color: var(--white);
+  background-color: var(--bg-color);
+  color: var(--black);
+  --bs-secondary-color: color-mix(in srgb, var(--black) 60%, transparent);
+  --link-color: var(--brand);
+  --link-hover-color: var(--scarlet);
+  --btn-color: var(--brand);
+  --btn-text: var(--white);
+  --btn2-color: var(--white);
+  --btn2-text: var(--black);
+  --btn2-border: var(--black);
+  --btn2-hover-bg: var(--black);
+}
+.bg-smoke {
+  --bg-color: var(--smoke);
+  background-color: var(--bg-color);
+  color: var(--black);
+  --bs-secondary-color: color-mix(in srgb, var(--black) 60%, transparent);
+  --link-color: var(--brand);
+  --link-hover-color: var(--scarlet);
+  --btn-color: var(--brand);
+  --btn-text: var(--white);
+  --btn2-color: var(--white);
+  --btn2-text: var(--black);
+  --btn2-border: var(--black);
+  --btn2-hover-bg: var(--black);
+}
+.bg-cream {
+  --bg-color: var(--cream);
+  background-color: var(--bg-color);
+  color: var(--black);
+  --bs-secondary-color: color-mix(in srgb, var(--black) 65%, transparent);
+  --link-color: var(--scarlet);
+  --link-hover-color: var(--brown);
+  --btn-color: var(--brand);
+  --btn-text: var(--white);
+  --btn-hover-text: var(--scarlet);
+  --btn2-color: var(--black);
+  --btn2-text: var(--white);
+}
+.bg-gray {
+  --bg-color: var(--gray);
+  background-color: var(--bg-color);
+  color: var(--black);
+  --bs-secondary-color: color-mix(in srgb, var(--black) 85%, transparent);
+  --link-color: var(--black);
+  --link-hover-color: var(--white);
+  --btn-color: var(--brand);
+  --btn-text: var(--white);
+  --btn-hover-text: var(--black);
+  --btn2-color: var(--white);
+  --btn2-text: var(--black);
+  --btn2-hover-text: var(--black);
+}
+.bg-blue {
+  --bg-color: var(--blue);
+  background-color: var(--bg-color);
+  color: var(--white);
+  --bs-secondary-color: color-mix(in srgb, var(--white) 70%, transparent);
+  --link-color: var(--cream);
+  --link-hover-color: var(--orange);
+  --btn-color: var(--white);
+  --btn-text: var(--brand);
+  --btn2-color: transparent;
+  --btn2-text: var(--white);
+  --btn2-border: var(--white);
+  --btn2-hover-bg: var(--white);
+  --btn2-hover-text: var(--black);
+}
+.bg-orange {
+  --bg-color: var(--orange);
+  background-color: var(--bg-color);
+  color: var(--black);
+  --bs-secondary-color: color-mix(in srgb, var(--black) 75%, transparent);
+  --link-color: var(--brown);
+  --link-hover-color: var(--black);
+  --btn-color: var(--brown);
+  --btn-text: var(--white);
+  --btn2-color: transparent;
+  --btn2-text: var(--black);
+  --btn2-border: var(--black);
+  --btn2-hover-bg: var(--black);
+  --btn2-hover-text: var(--white);
+}
+.bg-scarlet {
+  --bg-color: var(--scarlet);
+  background-color: var(--bg-color);
+  color: var(--white);
+  --bs-secondary-color: color-mix(in srgb, var(--white) 75%, transparent);
+  --link-color: var(--cream);
+  --link-hover-color: var(--white);
+  --btn-color: var(--white);
+  --btn-text: var(--brand);
+  --btn2-color: transparent;
+  --btn2-text: var(--white);
+  --btn2-border: var(--white);
+  --btn2-hover-bg: var(--white);
+  --btn2-hover-text: var(--black);
+}
+.bg-brown {
+  --bg-color: var(--brown);
+  background-color: var(--bg-color);
+  color: var(--white);
+  --bs-secondary-color: color-mix(in srgb, var(--white) 70%, transparent);
+  --link-color: var(--orange);
+  --link-hover-color: var(--cream);
+  --btn-color: var(--white);
+  --btn-text: var(--brand);
+  --btn2-color: transparent;
+  --btn2-text: var(--white);
+  --btn2-border: var(--white);
+  --btn2-hover-bg: var(--white);
+  --btn2-hover-text: var(--black);
+}
+
+.btn-brand {
+  background-color: var(--btn-color);
+  padding: 10px 20px;
+  color: var(--btn-text);
+  text-decoration: none;
+  transition: var(--transition);
+  border: var(--btn-color) 1px solid;
+  border-radius: 100px;
+  position: relative;
+  width: fit-content;
+  overflow: hidden;
+  display: inline-flex;
+}
+.btn-brand .btn-text {
+  z-index: 3;
+  position: relative;
+}
+.btn-brand .hover-fx {
+  background-color: var(--bg-color);
+  height: 100%;
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: -100%;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.btn-brand:hover {
+  /* --btn-hover-text solo se define en los fondos donde --btn-color no se lee
+     bien sobre --bg-color; en el resto se usa --btn-color */
+  color: var(--btn-hover-text, var(--btn-color));
+}
+.btn-brand:hover .hover-fx {
+  left: 0;
+  transition: var(--transition);
+}
+
+/* .btn-two: misma estructura y animación que .btn-brand, con sus propias
+   variables. --btn2-border y --btn2-hover-bg solo se definen donde el
+   relleno coincide con el fondo (bg-white) o donde el botón es de contorno
+   para diferenciarse de .btn-brand (blue, orange, scarlet, brown). */
+.btn-two {
+  background-color: var(--btn2-color);
+  padding: 10px 20px;
+  color: var(--btn2-text);
+  text-decoration: none;
+  transition: var(--transition);
+  border: var(--btn2-border, var(--btn2-color)) 1px solid;
+  border-radius: 100px;
+  position: relative;
+  width: fit-content;
+  overflow: hidden;
+  display: inline-flex;
+}
+.btn-two .btn-text {
+  z-index: 3;
+  position: relative;
+}
+.btn-two .hover-fx {
+  background-color: var(--btn2-hover-bg, var(--bg-color));
+  height: 100%;
+  z-index: 0;
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: -100%;
+  border-radius: 100px;
+  transition: var(--transition);
+}
+.btn-two:hover {
+  color: var(--btn2-hover-text, var(--btn2-color));
+}
+.btn-two:hover .hover-fx {
+  left: 0;
+  transition: var(--transition);
+}
+
+/* Nav-links a todo el alto de la barra: Bootstrap centra el menú dentro de
+   .navbar-collapse; al estirarlo, cada .nav-item ocupa el alto completo y el
+   .nav-link centra su texto en vertical. */
+.navbar-collapse {
+  align-items: stretch;
+  /* Bootstrap centra el collapse en la barra (align-items: center); sin
+     esto queda más bajo que el logo y el hover rojo deja franjas arriba y abajo */
+  align-self: stretch;
+}
+/* Forms: todos como el buscador del nav. Campo con borde negro sólido y
+   esquinas apenas redondeadas, y botón de ícono al lado (.btn .btn-sm) */
+.form-control,
+.form-control:focus {
+  border: 1px solid var(--black);
+  border-radius: 2px;
+}
+/* El botón de ícono toma el color de texto del .bg-* donde esté (Bootstrap
+   lo pinta del color del body, que sobre bg-black no se ve) y en hover el
+   color de hover de los enlaces */
+form .btn {
+  --bs-btn-color: currentColor;
+  --bs-btn-hover-color: var(--link-hover-color, currentColor);
+  --bs-btn-active-color: var(--link-hover-color, currentColor);
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-active-border-color: transparent;
+}
+.nav-item {
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 14px; /* 8 enlaces + íconos + buscador caben en una línea */
+  display: flex;
+}
+.nav-link {
+  display: flex;
+  align-items: center;
+  white-space: nowrap; /* "New in" y "Lentes de sol" no se parten en dos líneas */
+}
+/* Menú colapsado (bajo navbar-expand-xxl): el submenú de Estilos/Colecciones
+   baja a su propia línea en vez de quedar al lado del enlace */
+@media (max-width: 1399.98px) {
+  .nav-item.dropdown {
+    flex-wrap: wrap;
+  }
+  .nav-item.dropdown .dropdown-menu {
+    flex-basis: 100%;
+  }
+}
+/* El ítem del buscador no se pinta en hover: el rojo quedaría detrás del input */
+.nav-item:not(:has(form)):hover {
+  background-color: var(--brand);
+  transition: var(--transition);
+}
+.nav-item:not(:has(form)):hover .nav-link {
+  color: var(--white);
+}
+/* Navbar transparente al top: script.js le agrega .bg-light al hacer scroll.
+   Sin .bg-light el borde inferior queda transparente (!important para ganarle
+   a .border-black de Bootstrap) y así fondo y borde se animan juntos. */
+.navbar,
+.navbar .border-bottom {
+  transition: var(--transition);
+}
+.navbar:not(.bg-light) .border-bottom {
+  border-color: transparent !important;
+}
+/* Hamburguesa blanco mientras el nav está transparente sobre el hero; al
+   recibir .bg-light vuelve al ícono oscuro de navbar-light */
+.navbar:not(.bg-light) {
+  --bs-navbar-toggler-icon-bg: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23fff' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.5);
+}
+.nav-link {
+  transition: color var(--transition);
+}
+.product-card {
+  display: grid;
+  padding: 20px;
+  background-color: var(--white);
+  color: var(--black);
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 0px 1px;
+  transition: var(--transition);
+}
+.product-card:hover {
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 4px;
+  transform: translateY(-3px);
+  transition: var(--transition);
+}
+.tags {
+  display: flex;
+  justify-content: space-between;
+}
+.product-tag {
+  background-color: var(--black);
+  border-radius: 100px;
+  color: var(--white);
+  padding: 1px 10px;
+}
+.card-content {
+  text-align: center;
+  justify-content: center;
+}
+.product-card h3 {
+  font-family: var(--font-text);
+  font-size: var(--sm);
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+}
+.product-price {
+  font-size: var(--lg);
+  font-weight: 400;
+  font-family: var(--font-title);
+}
+.product-img {
+  width: 100%;
+  aspect-ratio: 1/1;
+}
+/* Dos fotos por card: las dos .product-img comparten la misma celda del
+   header (debajo de .tags); la segunda está oculta y aparece en hover. */
+.product-card header {
+  display: grid;
+}
+.product-card header .product-img {
+  grid-area: 2 / 1;
+  transition: opacity var(--transition);
+}
+.product-card header .product-img + .product-img {
+  opacity: 0;
+}
+.product-card:hover header .product-img + .product-img {
+  opacity: 1;
+}
+@keyframes slideUp {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
+.overlay-animation {
+  background: linear-gradient(#381f11, rgba(56, 31, 17, 0.37));
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  z-index: 99999;
+  top: 0;
+  left: 0;
+  animation: slideUp 500ms ease-out forwards;
+  animation-delay: 200ms;
+}
+.hero {
+  min-height: 80vh;
+  padding-bottom: 10vh;
+  padding-top: calc(10vh + 100px);
+}
+/* En pantallas angostas la foto se recorta a lo alto: se corre el encuadre
+   para que la mujer quede al centro (en hero3.webp está a la derecha) */
+@media (max-width: 991.98px) {
+  .hero > img {
+    object-position: 73% center;
+  }
+}
+.red-text {
+  color: var(--brand);
+}
+.card-step {
+  color: var(--white);
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  display: grid;
+  text-align: center;
+  justify-content: center;
+  font-size: var(--lg);
+  line-height: 1;
+  padding: clamp(10px, 5vh, 120px) clamp(10px, 5vh, 120px) ;
+  /* Ocupa todo el alto de la columna; ícono y texto juntos, centrados en
+     vertical. --icon escala el ícono con la pantalla. */
+  --icon: clamp(120px, 12vw, 180px);
+  height: 100%;
+  min-height: 50vh;
+
+  align-content: center;
+}
+.card-step img {
+  width: var(--icon);
+  margin: auto;
+  margin-bottom: 10px;
+}
+/* Ícono que es link (Instagram): crece un poco en hover */
+.card-step a img {
+  transition: transform var(--transition);
+}
+.card-step a:hover img,
+.card-step a:focus-visible img {
+  transform: scale(1.1);
+}
+/* Cuadrados de colecciones (a.ratio con imagen): la foto crece en hover */
+a.ratio > img {
+  transition: transform var(--transition);
+}
+a.ratio:hover > img,
+a.ratio:focus-visible > img {
+  transform: scale(1.06);
+}
+/* En móvil las tarjetas se apilan y miden lo que su contenido */
+@media (max-width: 767.98px) {
+  :root {
+    --gutter: 10px;
+  }
+  /* Las .row de Bootstrap se salen la mitad de su gutter hacia los lados; con
+     --gutter de 10px, el gutter por defecto (1.5rem) y g-4/g-5 se salen del
+     .container-fluid y generan scroll horizontal. Se limita a 2 × --gutter
+     (g-0 a g-3 ya caben y conservan su espacio) */
+  .row:not(.g-0):not(.g-1):not(.g-2):not(.g-3) {
+    --bs-gutter-x: calc(var(--gutter) * 2);
+  }
+  .card-step {
+    height: auto;
+    min-height: auto;
+  }
+}
+/* .parallax: sección con imagen de fondo (background-image inline) que queda
+   fija mientras se hace scroll. iOS Safari no soporta background-attachment:
+   fixed y la muestra como fondo normal; con movimiento reducido se desactiva. */
+.parallax {
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+@media (prefers-reduced-motion: reduce) {
+  .parallax {
+    background-attachment: scroll;
+  }
+}
+/* Entrada del hero: la foto hace un leve zoom-out (1.15 → 1), el tinte café
+   de lente de sol se levanta y el título, el texto y los botones suben uno
+   tras otro. */
+@keyframes heroZoom {
+  from {
+    transform: scale(1.15);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes heroText {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.hero > img {
+  animation: heroZoom 1400ms cubic-bezier(0.7, 0, 0.2, 1) both;
+}
+/* Tinte café de lente de sol solo sobre la foto del hero: la cubre mientras
+   el hero crece y luego se levanta (slideUp). Queda entre la foto y el texto:
+   el texto va por encima con z-index 2. */
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(#381f11, rgba(56, 31, 17, 0.37));
+  mix-blend-mode: multiply;
+  pointer-events: none;
+  animation: slideUp 700ms ease-in-out 1000ms both;
+}
+.hero > .container-fluid {
+  z-index: 2;
+}
+/* Celular y tablet (bajo lg el texto queda encima de la foto): el tinte no se
+   levanta, para que el texto se lea, y el párrafo y los íconos de redes van
+   en blanco */
+@media (max-width: 991.98px) {
+  .hero::after {
+    animation: none;
+  }
+  .hero p,
+  .hero .col-lg-5 a:not(.btn-brand) {
+    color: var(--white);
+  }
+}
+.hero .col-lg-5 > * {
+  animation: heroText 700ms ease-out both;
+}
+.hero .col-lg-5 > :nth-child(1) {
+  animation-delay: 900ms;
+}
+.hero .col-lg-5 > :nth-child(2) {
+  animation-delay: 1050ms;
+}
+.hero .col-lg-5 > :nth-child(3) {
+  animation-delay: 1200ms;
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero > img,
+  .hero .col-lg-5 > * {
+    animation: none;
+  }
+  .hero::after {
+    display: none;
+  }
+}

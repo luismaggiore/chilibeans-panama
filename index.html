@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CHILI BEANS</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-xxl fixed-top navbar-light p-0 d-block">
+      <div class="container-fluid bg-red d-block py-1 text-center small">
+        Free shipping from $100
+      </div>
+
+      <div class="container-fluid py-0 my-0 border-bottom border-black">
+        <a class="navbar-brand" href="#"
+          ><img src="logo.svg" width="200" height="40" alt="Chilli Beans"
+        /></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sale</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">New in</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Lentes de sol</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Armazones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Accesorios</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Estilos</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Clásicos</a></li>
+                <li><a class="dropdown-item" href="#">Deportivo / Sport</a></li>
+                <li><a class="dropdown-item" href="#">Tendencia / Trendy</a></li>
+                <li><a class="dropdown-item" href="#">Coloridos</a></li>
+                <li><a class="dropdown-item" href="#">Minimalistas</a></li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+                >Colecciones</a
+              >
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="#">Chilli Beans</a></li>
+                <li><a class="dropdown-item" href="#">Óptica</a></li>
+                <li><a class="dropdown-item" href="#">Eco</a></li>
+                <li><a class="dropdown-item" href="#">Alok</a></li>
+                <li><a class="dropdown-item" href="#">Reebok</a></li>
+                <li><a class="dropdown-item" href="#">Beatles</a></li>
+                <li><a class="dropdown-item" href="#">NBA</a></li>
+                <li><a class="dropdown-item" href="#">Anitta</a></li>
+                <li><a class="dropdown-item" href="#">Volkswagen</a></li>
+                <li><a class="dropdown-item" href="#">Havaianas</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" aria-label="Mi cuenta"
+                ><i class="bi bi-person fs-5" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" aria-label="Bolsa de compras"
+                ><i class="bi bi-bag fs-5" aria-hidden="true"></i
+              ></a>
+            </li>
+            <li class="nav-item">
+              <form class="d-flex align-items-center px-2" role="search">
+                <input
+                  class="form-control form-control-sm mb-2 mb-lg-0"
+                  type="search"
+                  placeholder="Buscar"
+                  aria-label="Buscar"
+                />
+                <button class="btn btn-sm" type="submit" aria-label="Buscar">
+                  <i class="bi bi-search" aria-hidden="true"></i>
+                </button>
+              </form>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero -->
+      <section
+        class="bg-white position-relative overflow-hidden hero d-flex align-items-end"
+      >
+        <img
+          src="hero3.webp"
+          class="position-absolute top-0 start-0 w-100 h-100 object-fit-cover"
+          alt=""
+        />
+        <div class="container-fluid position-relative w-100">
+          <div class="row">
+            <div class="col-lg-5">
+              <h1 class="text-white mb-3">Chili beans llega a Panamá</h1>
+              <p class="text-md">
+                Tú puedes estrenar tus gafas antes de que abra la tienda, ya
+                disponibles por e-commerce.
+              </p>
+              <div class="d-flex flex-wrap align-items-center gap-3 mt-4">
+                <a href="#acceso" class="btn-brand"
+                  ><span class="hover-fx"></span
+                  ><span class="btn-text">Quiero ser el primero</span></a
+                >
+                <a href="#siguenos" aria-label="Instagram"
+                  ><i class="bi bi-instagram fs-4" aria-hidden="true"></i
+                ></a>
+                <a href="#siguenos" aria-label="TikTok"
+                  ><i class="bi bi-tiktok fs-4" aria-hidden="true"></i
+                ></a>
+                <a href="#siguenos" aria-label="WhatsApp"
+                  ><i class="bi bi-whatsapp fs-4" aria-hidden="true"></i
+                ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Acceso anticipado -->
+      <section class="bg-smoke py-5 py-lg-0" id="acceso">
+        <div class="container-fluid pe-lg-4">
+          <div class="row g-5">
+            <div
+              class="col-lg-6 d-flex flex-column justify-content-center py-lg-5"
+            >
+              <h2 class="impact mb-4 red-text" style="max-width: 700px">
+                No esperes a que abra la tienda.
+              </h2>
+              <p class="text-md" style="max-width: 700px">
+                Síguenos ahora y entérate primero: fecha de apertura, drops
+                exclusivos y la posibilidad de comprar por e-commerce antes que
+                nadie.
+              </p>
+            </div>
+            <div class="col-lg-6 pe-lg-0">
+              <div class="row row-cols-1 g-2 g-lg-0 row-cols-md-3 h-100">
+                <div class="col">
+                  <div
+                    class="card-step"
+                    style="
+                      background-image: url(texture.webp);
+                      min-height: 100px;
+                    "
+                  >
+                    <a
+                      href="https://www.instagram.com/chillibeans.panama/"
+                      target="_blank"
+                      rel="noopener"
+                      ><img src="insta.webp" alt="Instagram de Chilli Beans Panamá"
+                    /></a>
+                    Síguenos en Instagram
+                  </div>
+                </div>
+                <div class="col">
+                  <div
+                    class="card-step"
+                    style="
+                      background-image: url(texture-2.webp);
+                      min-height: 100px;
+                    "
+                  >
+                    <img src="notified.webp" /> Recibe el aviso de acceso
+                    anticipado
+                  </div>
+                </div>
+                <div class="col">
+                  <div
+                    class="card-step"
+                    style="
+                      background-image: url(texture.webp);
+                      min-height: 100px;
+                    "
+                  >
+                    <img src="shopbag.webp" />
+                    Compra en línea antes de la apertura
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+        <section class="parallax" style="background-image: url(banner.webp); min-height: 300px">
+        
+        
+        </section>
+      <!-- Actitud global -->
+      <section class="split">
+        <div
+          class="bg-red"
+          style="
+            background-image: url(&quot;concept-3.webp&quot;);
+            background-size: cover;
+            background-position: center;
+          "
+        >
+          <p class="eyebrow">De Brasil para el mundo</p>
+          <p class="impact">
+            La misma actitud,<br />en cualquier parte del mundo.
+          </p>
+        </div>
+        <div class="bg-black d-flex flex-column justify-content-center">
+          <p class="text-md">
+            De Brasil a Kuwait, de Portugal a Panamá: la marca de gafas de sol
+            más grande de América Latina ya tiene casa aquí.
+          </p>
+          <a href="#acceso" class="btn-two"
+            ><span class="hover-fx"></span
+            ><span class="btn-text">Quiero ser el primero</span></a
+          >
+        </div>
+      </section>
+
+      <!-- Universo / productos -->
+      <section class="bg-white">
+        <div class="container-fluid">
+          <h2 class="text-center">Próximamente</h2>
+          <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-2">
+            <div class="col">
+              <div class="product-card">
+                <header>
+                  <div class="tags">
+                    <span class="product-tag">New</span>
+                    <span class="favorite" aria-label="Agregar a favoritos">
+                      <i class="bi bi-heart"></i>
+                    </span>
+                  </div>
+                  <img class="product-img" src="01.webp" alt="" />
+                  <img class="product-img" src="02.webp" alt="" />
+                </header>
+                <div class="card-content">
+                  <h3>
+                    Lentes de Sol Chili Beans Lausana . Animal Print - Violeta
+                  </h3>
+                  <span class="product-price">$100.0</span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="product-card">
+                <header>
+                  <div class="tags">
+                    <span class="product-tag">New</span>
+                    <span class="favorite" aria-label="Agregar a favoritos">
+                      <i class="bi bi-heart"></i>
+                    </span>
+                  </div>
+                  <img class="product-img" src="01.webp" alt="" />
+                  <img class="product-img" src="02.webp" alt="" />
+                </header>
+                <div class="card-content">
+                  <h3>Product Name</h3>
+                  <span class="product-price">$100.0</span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="product-card">
+                <header>
+                  <div class="tags">
+                    <span class="product-tag">New</span>
+                    <span class="favorite" aria-label="Agregar a favoritos">
+                      <i class="bi bi-heart"></i>
+                    </span>
+                  </div>
+                  <img class="product-img" src="01.webp" alt="" />
+                  <img class="product-img" src="02.webp" alt="" />
+                </header>
+                <div class="card-content">
+                  <h3>Product Name</h3>
+                  <span class="product-price">$100.0</span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="product-card">
+                <header>
+                  <div class="tags">
+                    <span class="product-tag">New</span>
+                    <span class="favorite" aria-label="Agregar a favoritos">
+                      <i class="bi bi-heart"></i>
+                    </span>
+                  </div>
+                  <img class="product-img" src="01.webp" alt="" />
+                  <img class="product-img" src="02.webp" alt="" />
+                </header>
+                <div class="card-content">
+                  <h3>Product Name</h3>
+                  <span class="product-price">$100.0</span>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="product-card">
+                <header>
+                  <div class="tags">
+                    <span class="product-tag">New</span>
+                    <span class="favorite" aria-label="Agregar a favoritos">
+                      <i class="bi bi-heart"></i>
+                    </span>
+                  </div>
+                  <img class="product-img" src="01.webp" alt="" />
+                  <img class="product-img" src="02.webp" alt="" />
+                </header>
+                <div class="card-content">
+                  <h3>Product Name</h3>
+                  <span class="product-price">$100.0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Colecciones -->
+ 
+
+        <section
+          class="parallax"
+          style="background-image: url(banner.webp); min-height: 300px"
+        >
+
+
+        </section>
+     
+
+      <!-- Newsletter -->
+      <section class="bg-cream" id="newsletter">
+        <div class="container-fluid text-center">
+          <h2>Entérate de todo el lanzamiento.</h2>
+          <p class="text-muted mx-auto">
+            Suscríbete y recibe antes que nadie la fecha de apertura, los drops
+            exclusivos y el acceso anticipado al e-commerce.
+          </p>
+          <div class="row justify-content-center mt-4">
+            <div class="col-md-8 col-lg-5">
+              <form class="d-flex align-items-center">
+                <input
+                  class="form-control"
+                  type="email"
+                  placeholder="Tu e-mail"
+                  aria-label="Tu e-mail"
+                  required
+                />
+                <button class="btn" type="submit" aria-label="Suscribirme">
+                  <i class="bi bi-send fs-5" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Síguenos -->
+
+      <footer class="bg-black py-5">
+        <div class="container-fluid">
+          <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4">
+            <div class="col">
+              <p class="eyebrow">Contacto</p>
+              <ul class="list-unstyled small">
+                <li class="mb-2">Teléfono: por confirmar</li>
+                <li class="mb-2">Dirección: por confirmar</li>
+                <li class="mb-2">Email: por confirmar</li>
+                <li class="mb-2">Horario: por confirmar</li>
+              </ul>
+            </div>
+            <div class="col">
+              <p class="eyebrow">Empresa</p>
+              <ul class="list-unstyled small">
+                <li class="mb-2"><a href="#">Tiendas</a></li>
+                <li class="mb-2"><a href="#">Nosotros</a></li>
+                <li class="mb-2"><a href="#">Contacto</a></li>
+                <li class="mb-2"><a href="#">Términos y condiciones</a></li>
+                <li class="mb-2"><a href="#">Trabaja con nosotros</a></li>
+              </ul>
+            </div>
+            <div class="col">
+              <p class="eyebrow">Compra</p>
+              <ul class="list-unstyled small">
+                <li class="mb-2"><a href="#">Cómo comprar</a></li>
+                <li class="mb-2"><a href="#">Envíos y devoluciones</a></li>
+                <li class="mb-2"><a href="#">Preguntas frecuentes</a></li>
+              </ul>
+            </div>
+            <div class="col">
+              <p class="eyebrow">Mi cuenta</p>
+              <ul class="list-unstyled small">
+                <li class="mb-2"><a href="#">Mi cuenta</a></li>
+                <li class="mb-2"><a href="#">Mis compras</a></li>
+                <li class="mb-2"><a href="#">Mis direcciones</a></li>
+                <li class="mb-2"><a href="#">Wish List</a></li>
+              </ul>
+            </div>
+            <div class="col-12 col-lg">
+              <p class="eyebrow">Newsletter</p>
+              <p class="small">
+                ¡Suscríbete y recibe todas nuestras novedades!
+              </p>
+              <form class="d-flex align-items-center">
+                <input
+                  class="form-control form-control-sm"
+                  type="email"
+                  placeholder="Tu e-mail"
+                  aria-label="Tu e-mail"
+                  required
+                />
+                <button class="btn btn-sm" type="submit" aria-label="Suscribirme">
+                  <i class="bi bi-send" aria-hidden="true"></i>
+                </button>
+              </form>
+            </div>
+          </div>
+
+          <div
+            class="d-flex flex-wrap justify-content-between align-items-center gap-3 border-top border-secondary pt-4 mt-4"
+          >
+            <div class="d-flex gap-3">
+              <a href="#" aria-label="YouTube"
+                ><i class="bi bi-youtube fs-4" aria-hidden="true"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/chillibeans.panama/"
+                target="_blank"
+                rel="noopener"
+                aria-label="Instagram"
+                ><i class="bi bi-instagram fs-4" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="WhatsApp"
+                ><i class="bi bi-whatsapp fs-4" aria-hidden="true"></i
+              ></a>
+              <a href="#" aria-label="TikTok"
+                ><i class="bi bi-tiktok fs-4" aria-hidden="true"></i
+              ></a>
+            </div>
+            <p class="text-muted small m-0">© Copyright 2026 / Chilli Beans</p>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
