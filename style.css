@@ -523,6 +523,33 @@ form .btn {
 .product-card:hover header .product-img + .product-img {
   opacity: 1;
 }
+/* Página de producto: miniaturas de la galería. script.js marca .active en
+   la de la foto que se está mostrando. */
+.product-thumbs button {
+  width: 80px;
+  padding: 0;
+  border: 1px solid transparent;
+  background: none;
+  opacity: 0.6;
+  transition: var(--transition);
+}
+.product-thumbs button:hover,
+.product-thumbs button.active {
+  opacity: 1;
+}
+.product-thumbs button.active {
+  border-color: var(--black);
+}
+/* Acordeón de Bootstrap con los colores de marca en vez del azul por defecto */
+.accordion {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: var(--black);
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-active-color: inherit;
+  --bs-accordion-btn-active-icon: var(--bs-accordion-btn-icon);
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem
+    color-mix(in srgb, var(--brand) 25%, transparent);
+}
 @keyframes slideUp {
   0% {
     transform: translateY(0);
@@ -628,9 +655,9 @@ a.ratio:focus-visible > img {
     background-attachment: scroll;
   }
 }
-/* Entrada del hero: la foto hace un leve zoom-out (1.15 → 1), el tinte café
-   de lente de sol se levanta y el título, el texto y los botones suben uno
-   tras otro. */
+/* Entrada del hero: la foto hace un leve zoom-out (1.15 → 1) mientras el
+   tinte café de lente de sol se levanta, y luego el título, el texto y los
+   botones suben uno tras otro. */
 @keyframes heroZoom {
   from {
     transform: scale(1.15);
@@ -652,9 +679,10 @@ a.ratio:focus-visible > img {
 .hero > img {
   animation: heroZoom 1400ms cubic-bezier(0.7, 0, 0.2, 1) both;
 }
-/* Tinte café de lente de sol solo sobre la foto del hero: la cubre mientras
-   el hero crece y luego se levanta (slideUp). Queda entre la foto y el texto:
-   el texto va por encima con z-index 2. */
+/* Tinte café de lente de sol solo sobre la foto del hero: se levanta
+   (slideUp) al mismo tiempo que la foto hace el zoom-out, con la misma
+   duración y curva. Queda entre la foto y el texto: el texto va por encima
+   con z-index 2. */
 .hero::after {
   content: "";
   position: absolute;
@@ -663,7 +691,7 @@ a.ratio:focus-visible > img {
   background: linear-gradient(#381f11, rgba(56, 31, 17, 0.37));
   mix-blend-mode: multiply;
   pointer-events: none;
-  animation: slideUp 700ms ease-in-out 1000ms both;
+  animation: slideUp 1400ms cubic-bezier(0.7, 0, 0.2, 1) both;
 }
 .hero > .container-fluid {
   z-index: 2;
