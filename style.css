@@ -42,8 +42,13 @@
   --xxl: calc(var(--xl) * var(--ratio)); /* ~46px */
   --xlg: calc(var(--xxl) * var(--ratio) * 2); /* ~59px */
   --gutter-y: clamp(50px, 5vw, 800px);
-  --gutter: clamp(10px, 8vw, 800px);
+  --gutter: clamp(10px, 3vw, 800px);
   --transition: 250ms ease;
+}
+.py-gutter {
+  padding-top: var(--gutter-y);
+
+  padding-bottom: var(--gutter-y);
 }
 body {
   font-family: var(--font-text);
@@ -594,7 +599,7 @@ form .btn {
   justify-content: center;
   font-size: var(--lg);
   line-height: 1;
-  padding: clamp(10px, 5vh, 120px) clamp(10px, 5vh, 120px) ;
+  padding: clamp(10px, 5vh, 120px) clamp(10px, 5vh, 120px);
   /* Ocupa todo el alto de la columna; ícono y texto juntos, centrados en
      vertical. --icon escala el ícono con la pantalla. */
   --icon: clamp(120px, 12vw, 180px);
@@ -602,6 +607,10 @@ form .btn {
   min-height: 50vh;
 
   align-content: center;
+  /* La textura (background-image inline) cubre toda la tarjeta sin repetirse */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 .card-step img {
   width: var(--icon);
